@@ -30,5 +30,33 @@ inputValidation = (e) => {
           }
         );
       }
-    
+ 
+fieldValidation = (fieldName, value) => {
+    let fieldValidationError = this.state.FormErrors;
+    let isEmailValid = this.state.isEmailValid;
+    let isPasswordValid = this.state.isPasswordValid;
+
+
+    switch (fieldName) {
+        case 'email':
+            isEmailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)
+            fieldValidationError.email = isEmailValid ? '' : 'is invalid';
+        break;
+        case 'password':
+            isPasswordValid = value.length >= 4;
+            fieldValidationError.password = isPasswordValid ? ' ': 'is too short';
+        break;
+        case 'description':
+            isDescriptionValid = value.trim().length > 0
+            fieldValidationError.description = isDescriptionValid ? ' ': 'is mandatory';
+        break;
+        case 'category':
+            const numberOfCategories = ['category1', 'category2', 'category3'];
+            isNumberOfCategoriesValid = valid.category.includes(value);
+        break;
+        case 'quantity':
+            isQuatityValueValid = !isNaN(value) && parseFloat(value) < 1000;
+            fieldValidationError.quantity = isQuatityValueValid ? ' ' : 'should be less than 1000 items'
+    }
+}
     
