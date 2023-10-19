@@ -20,14 +20,15 @@ class Form extends Component {
         }
     }
 
-    inputValidation = (e) => {
-        const name = e.target.name;
-        const value = e.target.value; // Change "name" to "value"
-        this.setState(
-          { [name]: value },
-          () => {
-            this.fieldValidation(name, value);
+inputValidation = (e) => {
+    const name = e.target.name;
+    const value = e.target.value; 
+    this.setState(
+        { [name]: value },
+         () => {
+        this.fieldValidation(name, value);
           }
         );
       }
+    
     
