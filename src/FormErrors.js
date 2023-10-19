@@ -1,4 +1,4 @@
-//Creating a presentional 
+//Creating a presentional component
 
 
 import React from 'react';
